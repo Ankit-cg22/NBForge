@@ -13,13 +13,32 @@
   - 2. CLI
   - 3. VS-Code extension
 
-- Milestnes :
+- Milestones :
 
 - 1. convert notebook to python project
 - 2. proper structure
 - 3. add logging
 - 4. proper packaging (toml)
 - 5. convert to package
+  - understand difference between
+    - a. publishing a package that one can import
+    - b. publishing a pakcage that people install and use in cli
+- TARGET: 31/03/2025
 - 6. cli
 - 7. webapp
 - 8. vs code extension
+
+- MAYBE : we will provide an option to create test cases for the modules
+- add anotations :
+
+  - through comments probably
+  - user can state whether to add this markdown as comment or as as main readme
+
+- if we are offering as cli then how to use the groq api key?
+
+### Tasks
+
+- revamp the prompt
+  - make sure llm does not add anything of its own
+  - it just goes over the code and separates the code and comments
+  - should we allow it to revamp the comments and readme?

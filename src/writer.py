@@ -1,13 +1,7 @@
-def write_python_script(code_cells, output_dir , output_file):
-    output_path = f"{output_dir}/{output_file}"
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write("# Auto-generated from Jupyter Notebook\n\n")
-        for idx, code in enumerate(code_cells):
-            f.write(code + "\n\n")
-
-def write_readme_md(markdown_cells , output_dir , output_file):
-    output_path = f"{output_dir}/{output_file}"
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write("### Note : Auto-generated from Jupyter Notebook\n\n")
-        for idx, md in enumerate(markdown_cells):
-            f.write(md + "\n\n")
+import os 
+def write_to_file(output_dir , file_name , file_content):
+    os.makedirs(output_dir, exist_ok=True)
+    os.path.join(output_dir, file_name)
+    file_path = f"{output_dir}/{file_name}"
+    with open(file_path, "w", encoding="utf-8") as file:
+        file.write(file_content)

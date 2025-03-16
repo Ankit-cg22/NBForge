@@ -1,3 +1,34 @@
-*.env 
-nbforge/
 examples/
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+*.venv
+nbforge/
+
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and database files
+logs/
+*.log
+*.sqlite3
+*.db
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# Environment and dependency files
+*.env
+.envrc
+*.ini
+*.toml

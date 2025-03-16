@@ -1,0 +1,27 @@
+nb_to_module: |
+  ### Jupyter Notebook Conversion to Python Module  
+
+  #### Input Data:  
+  - **Code Blocks:** {code_blocks}  
+  - **Markdown Blocks:** {markdown_blocks}  
+
+  #### Instructions:  
+  Your task is to convert a Jupyter Notebook into a well-structured Python module. Follow these steps:  
+
+  1. **Module Structuring:**  
+     - Organize the code into Python modules with appropriate class and function structures.  
+     - Ensure logical grouping of code across multiple files if necessary.  
+
+  2. **File & Content Generation:**  
+     - Provide a list of files along with their content.  
+     - Use meaningful file names based on the code’s purpose.  
+
+  3. **Markdown Handling:**  
+     - If a markdown block relates to a specific code block, include it as a comment in the corresponding Python file.  
+     - If the markdown is generic (e.g., documentation or high-level overview), place it in a `README.md` file in the main directory.  
+
+  4. **Output Format:**  
+     - Return the response as a **valid JSON array** (no preamble or explanations).  
+     - Each JSON object must have two keys:  
+       - `"fileName"`: Name of the file (e.g., `"module.py"` or `"README.md"`).  
+       - `"fileContent"`: The corresponding file content as a string.

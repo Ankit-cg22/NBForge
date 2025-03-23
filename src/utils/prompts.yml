@@ -20,8 +20,18 @@ nb_to_module: |
      - If a markdown block relates to a specific code block, include it as a comment in the corresponding Python file.  
      - If the markdown is generic (e.g., documentation or high-level overview), place it in a `README.md` file in the main directory.  
 
-  4. **Output Format:**  
+  4. **Requirements File:**  
+     - Generate a `requirements.txt` file containing all the necessary dependencies used in the notebook.  
+
+  5. **Setup Instructions:**  
+     - Create a `setup.md` file that includes:  
+       - Steps to create a virtual environment.  
+       - Commands to install dependencies from `requirements.txt`.  
+       - Instructions on how to run the generated Python module.  
+       - **All commands must be enclosed in code blocks (` ``` `) to ensure proper formatting.**  
+
+  6. **Output Format:**  
      - Return the response as a **valid JSON array** (no preamble or explanations).  
      - Each JSON object must have two keys:  
-       - `"fileName"`: Name of the file (e.g., `"module.py"` or `"README.md"`).  
+       - `"fileName"`: Name of the file (e.g., `"module.py"`, `"README.md"`, `"requirements.txt"`, `"setup.md"`).  
        - `"fileContent"`: The corresponding file content as a string.

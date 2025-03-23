@@ -6,6 +6,7 @@ from groq_client import GroqClient
 from dotenv import load_dotenv
 import yaml
 from utils.constants import *
+import platform
 
 load_dotenv()
 
@@ -31,10 +32,10 @@ class Chains:
     def get_file_structure(self, code_blocks , markdown_blocks):
         prompt_file_structure = PromptTemplate.from_template(self.get_prompt(NB_TO_MODULE))
         chain_extract = prompt_file_structure | self.llm
-        res = chain_extract.invoke(input={"code_blocks": code_blocks , "markdown_blocks" : markdown_blocks})
+        res = chain_extract.invoke(input={"code_blocks": code_blocks , "markdown_blocks" : markdown_blocks , "platform":platform.system()})
         try:
             json_parser = JsonOutputParser()
             res = json_parser.parse(res.content)
         except OutputParserException:
-            raise OutputParserException("Context too big. Unable to parse jobs.")
+            raise OutputParserException("Context too big. Unable to parse data.")
         return res

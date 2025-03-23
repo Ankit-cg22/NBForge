@@ -3,33 +3,21 @@ from writer import write_to_file
 from chains import Chains 
 import json 
 
-code_cells, markdown_cells = extract_cells("C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\input\\sample_notebook.ipynb")
+code_cells, markdown_cells = extract_cells("C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\input\\cold_email_generator.ipynb")
 
-output_dir = "C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\output\\sample_notebook"
+output_dir = "C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\output\\cold_email_generator"
 chains = Chains()
 
-try :
-    res = chains.get_file_structure(code_cells , markdown_cells)
-    for obj in res :
-        file_name = obj['fileName']
-        file_content = obj['fileContent']
+try:
+    res = chains.get_file_structure(code_cells, markdown_cells)
+    # Write the files
+    print("writing files...")
+    for file in res:
+        file_name = file['fileName']
+        file_content = file['fileContent']
         write_to_file(output_dir , file_name , file_content)
-except Exception as e:
-    print("error occured \n" , e)
+    print("written files. ")
+    print("Setup complete!")
 
-'''
-[
-    {
-        "fileName": "README.md",
-        "fileContent": "# Sample Jupyter Notebook\nThis is a test notebook for conversion."
-    },
-    {
-        "fileName": "greet.py",
-        "fileContent": "# Function: greet\n# This function takes a name and returns a greeting message.\n\ndef greet(name):\n    return f\"Hello, {name}!\""
-    },
-    {
-        "fileName": "main.py",
-        "fileContent": "import numpy as np\nimport pandas as pd\nfrom greet import greet\n\ndata = {'A': [1, 2, 3], 'B': [4, 5, 6]}\ndf = pd.DataFrame(data)\nname = \"Alice\"\nmessage = greet(name)\nprint(message)\nprint(df)"
-    }
-]
-'''
+except Exception as e:
+    print(f"Error: {e}")

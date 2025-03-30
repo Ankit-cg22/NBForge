@@ -12,6 +12,7 @@ nb_to_module: |
      - Provide a list of files along with their content.
      - Use meaningful file names based on the code’s purpose.
      - Organize the code into Python modules with appropriate class and function structures.
+     - Each module should define a class encapsulating related functionality, with methods handling specific tasks.
 
   2. **Markdown Handling:**
      - If a markdown block relates to a specific code block, include it as a comment in the corresponding Python file.

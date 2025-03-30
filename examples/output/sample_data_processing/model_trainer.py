@@ -1,11 +1,12 @@
 from sklearn.linear_model import LinearRegression
 
 class ModelTrainer:
-    def __init__(self):
-        self.model = LinearRegression()
+    def __init__(self, X_train, y_train):
+        self.X_train = X_train
+        self.y_train = y_train
     
-    def train(self, X_train, y_train):
-        self.model.fit(X_train, y_train)
-    
-    def predict(self, X_test):
-        return self.model.predict(X_test)
+    def train_model(self):
+        # Train model
+        model = LinearRegression()
+        model.fit(self.X_train, self.y_train)
+        return model

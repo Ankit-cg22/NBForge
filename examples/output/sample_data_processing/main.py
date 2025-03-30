@@ -1,20 +1,28 @@
 from data_loader import DataLoader
-from data_preprocessor import DataPreprocessor
+from data_splitter import DataSplitter
 from model_trainer import ModelTrainer
 from model_evaluator import ModelEvaluator
+import pandas as pd
 
-# Example Usage
-data_loader = DataLoader('data.csv')
+# Load data
+file_path = 'data.csv'
+data_loader = DataLoader(file_path)
 df = data_loader.load_data()
 
-preprocessor = DataPreprocessor(df)
-df_clean = preprocessor.clean_data()
-X_train, X_test, y_train, y_test = preprocessor.split_data(target_column='target')
+df = data_loader.clean_data(df)
 
-trainer = ModelTrainer()
-trainer.train(X_train, y_train)
-predictions = trainer.predict(X_test)
+target_column = 'target'
+data_splitter = DataSplitter(df, target_column)
+X_train, X_test, y_train, y_test = data_splitter.split_data()
 
-evaluator = ModelEvaluator(y_test, predictions)
-mse = evaluator.evaluate()
+# Train model
+model_trainer = ModelTrainer(X_train, y_train)
+model = model_trainer.train_model()
+
+# Make predictions
+predictions = model.predict(X_test)
+
+# Evaluate model
+model_evaluator = ModelEvaluator(y_test, predictions)
+mse = model_evaluator.evaluate_model()
 print(f'Mean Squared Error: {mse}')

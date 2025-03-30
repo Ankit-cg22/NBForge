@@ -5,4 +5,11 @@ class DataLoader:
         self.file_path = file_path
     
     def load_data(self):
-        return pd.read_csv(self.file_path)
+        # Load data
+        df = pd.read_csv(self.file_path)
+        return df
+    
+    def clean_data(self, df):
+        # Clean data
+        df.dropna(inplace=True)
+        return df

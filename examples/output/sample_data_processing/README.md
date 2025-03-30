@@ -1,3 +1,3 @@
 # Project Overview
 
-This project contains classes for data loading, preprocessing, model training, and evaluation.
+This project contains a simple linear regression model using scikit-learn.

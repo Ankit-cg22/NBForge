@@ -3,9 +3,9 @@ from writer import write_to_file
 from chains import Chains 
 import json 
 
-code_cells, markdown_cells = extract_cells("C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\input\\cold_email_generator.ipynb")
+code_cells, markdown_cells = extract_cells("C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\input\\sample_data_processing.ipynb")
 
-output_dir = "C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\output\\cold_email_generator"
+output_dir = "C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\output\\sample_data_processing"
 chains = Chains()
 
 try:

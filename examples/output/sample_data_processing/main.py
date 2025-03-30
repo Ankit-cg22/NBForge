@@ -1,28 +1,17 @@
-from data_loader import DataLoader
-from data_splitter import DataSplitter
-from model_trainer import ModelTrainer
-from model_evaluator import ModelEvaluator
-import pandas as pd
+# Main function
+from data_loader import load_data
+from data_cleaner import clean_data
+from data_splitter import split_data
+from model_trainer import train_model
+from model_evaluator import evaluate_model
 
-# Load data
-file_path = 'data.csv'
-data_loader = DataLoader(file_path)
-df = data_loader.load_data()
-
-df = data_loader.clean_data(df)
-
-target_column = 'target'
-data_splitter = DataSplitter(df, target_column)
-X_train, X_test, y_train, y_test = data_splitter.split_data()
-
-# Train model
-model_trainer = ModelTrainer(X_train, y_train)
-model = model_trainer.train_model()
-
-# Make predictions
-predictions = model.predict(X_test)
-
-# Evaluate model
-model_evaluator = ModelEvaluator(y_test, predictions)
-mse = model_evaluator.evaluate_model()
-print(f'Mean Squared Error: {mse}')
+if __name__ == "__main__":
+    file_path = 'data.csv'
+    target_column = 'target'
+    df = load_data(file_path)
+    df = clean_data(df)
+    X_train, X_test, y_train, y_test = split_data(df, target_column)
+    model = train_model(X_train, y_train)
+    predictions = model.predict(X_test)
+    mse = evaluate_model(y_test, predictions)
+    print(f'Mean Squared Error: {mse}')

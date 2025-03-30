@@ -3,9 +3,9 @@ from writer import write_to_file
 from chains import Chains 
 import json 
 
-code_blocks, markdown_blocks , streamlit_desc_block = extract_blocks("C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\input\\sample_date_processing_streamlit.ipynb")
+code_blocks, markdown_blocks , streamlit_desc_block = extract_blocks("C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\input\\sample_data_processing.ipynb")
 
-output_dir = "C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\output\\sample_date_processing_streamlit"
+output_dir = "C:\\Users\\Hp\\Desktop\\projects\\NBForge\\examples\\output\\sample_data_processing"
 chains = Chains()
 
 try:

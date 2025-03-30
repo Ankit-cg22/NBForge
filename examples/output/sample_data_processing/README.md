@@ -1,3 +1,4 @@
-# Project Overview
+# Data Processing Project
 
-This project contains a simple linear regression model using scikit-learn.
+This project demonstrates how to do data processing to find mean squared error.
+- The below cell displays how we use linear regression.

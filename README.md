@@ -42,6 +42,13 @@
 ### Tasks
 
 - revamp the prompt
+
   - make sure llm does not add anything of its own
   - it just goes over the code and separates the code and comments
   - should we allow it to revamp the comments and readme?
+
+- check the streamlit app . check whether it is correctly picking the csv file .
+
+- Sample image from streamlit app
+- ![alt text](./images/streamlit_1.png)
+- ![alt text](./images/streamlit_2.png)

@@ -29,10 +29,15 @@ class Chains:
         return self.prompts[key]
 
 
-    def get_file_structure(self, code_blocks , markdown_blocks):
-        prompt_file_structure = PromptTemplate.from_template(self.get_prompt(NB_TO_MODULE))
+    def get_file_structure(self, code_blocks , markdown_blocks , streamlit_desc_block):
+        prompt_name = None 
+        if streamlit_desc_block is not None : 
+            prompt_name = self.get_prompt(NB_TO_MODULE_STREAMLIT_PROMPT)
+        else: 
+            prompt_name = self.get_prompt(NB_TO_MODULE_PROMPT)
+        prompt_file_structure = PromptTemplate.from_template(prompt_name)
         chain_extract = prompt_file_structure | self.llm
-        res = chain_extract.invoke(input={"code_blocks": code_blocks , "markdown_blocks" : markdown_blocks , "platform":platform.system()})
+        res = chain_extract.invoke(input={"code_blocks": code_blocks , "markdown_blocks" : markdown_blocks ,"streamlit_desc_block" :streamlit_desc_block , "platform":platform.system()})
         try:
             json_parser = JsonOutputParser()
             res = json_parser.parse(res.content)

@@ -15,15 +15,18 @@
 
 - Milestones :
 
-- 1. convert notebook to python project
+- 1. convert notebook to python project -- done
+- 2. stream lit
+  - to provide stream lit desc create a markdown with the header `NBForge_Streamlit`
+  - if there are multiple such markdown blocks we pick the latest one
 - 2. proper structure
+  - add description for each function
 - 3. add logging
 - 4. proper packaging (toml)
 - 5. convert to package
   - understand difference between
     - a. publishing a package that one can import
     - b. publishing a pakcage that people install and use in cli
-- TARGET: 31/03/2025
 - 6. cli
 - 7. webapp
 - 8. vs code extension

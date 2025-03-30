@@ -8,27 +8,66 @@ nb_to_module: |
   #### Instructions:  
   Your task is to convert a Jupyter Notebook into a well-structured Python module. Follow these steps:  
 
-  1. **File & Content Generation:**  
-     - Provide a list of files along with their content.  
-     - Use meaningful file names based on the code’s purpose.  
-     - Organize the code into Python modules with appropriate class and function structures.  
+  1. **File & Content Generation:**
+     - Provide a list of files along with their content.
+     - Use meaningful file names based on the code’s purpose.
+     - Organize the code into Python modules with appropriate class and function structures.
 
-  2. **Markdown Handling:**  
-     - If a markdown block relates to a specific code block, include it as a comment in the corresponding Python file.  
-     - If the markdown is generic (e.g., documentation or high-level overview), place it in a `README.md` file in the main directory.  
+  2. **Markdown Handling:**
+     - If a markdown block relates to a specific code block, include it as a comment in the corresponding Python file.
+     - If the markdown is generic (e.g., documentation or high-level overview), place it in a `README.md` file in the main directory.
 
-  3. **Requirements File:**  
-     - Generate a `requirements.txt` file containing all the necessary dependencies used in the notebook.  
+  3. **Requirements File:**
+     - Generate a `requirements.txt` file containing all the necessary dependencies used in the notebook.
 
-  4. **Setup file**  
-     - Generate a `setup.md` file that includes:  
-       - Steps to create a virtual environment.  
-       - Commands to install dependencies from `requirements.txt`.  
-       - Instructions on how to run the generated Python module. 
-     - Add commands pertaining to platform : {platform}
+  4. **Setup file**
+     - Generate a `SETUP.md` file that includes:
+       - Steps to create a virtual environment.
+       - Commands to install dependencies from `requirements.txt`.
+       - Instructions on how to run the generated Python module.
+     - Add commands pertaining to platform: {platform}
 
-  5. **Output Format:**  
-     - Return the response as a **valid JSON array** (no preamble or explanations).  
-     - Each JSON object must have two keys:  
-       - `"fileName"`: Name of the file (e.g., `"module.py"`, `"README.md"`, `"requirements.txt"`, `"setup.md"`).  
+  5. **Output Format:**
+     - Return the response as a **valid JSON array** (no preamble or explanations).
+     - Each JSON object must have two keys:
+       - `"fileName"`: Name of the file (e.g., `"module.py"`, `"README.md"`, `"requirements.txt"`, `"setup.md"`).
        - `"fileContent"`: The corresponding file content as a string.
+     - Ensure that all double quotes (") inside the fileContent field are properly escaped (\\\") to maintain valid JSON formatting. Use \\n for newlines instead of raw line breaks
+
+  ### Examples:
+
+  #### Example 1:
+  **Input Notebook Data:**
+  ```json
+  {{
+    "code_blocks": [
+      "import numpy as np\n\ndef add(a, b):\n    return np.add(a, b)"
+    ],
+    "markdown_blocks": [
+      "### Addition Function\nThis function adds two numbers using NumPy."
+    ],
+    "platform": "Linux"
+  }}
+  ```
+
+  **Expected Output:**
+  ```json
+  [
+    {{
+      "fileName": "utils.py",
+      "fileContent": "# Addition Function - This function adds two numbers using NumPy.\n\nimport numpy as np\n\ndef add(a, b):\n    return np.add(a, b)\n\n"
+    }},
+    {{
+      "fileName": "README.md",
+      "fileContent": "# Project Overview\n\nThis project contains utility functions for numerical operations."
+    }},
+    {{
+      "fileName": "requirements.txt",
+      "fileContent": "numpy"
+    }},
+    {{
+      "fileName": "SETUP.md",
+      "fileContent": "## Setup Instructions\n\n### Virtual Environment Setup (Linux)\n```bash\npython3 -m venv venv\nsource venv/bin/activate\npip install -r requirements.txt\n```\n\n### Running the Module\n```bash\npython -c 'from utils import add; print(add(2,3))'\n```"
+    }}
+  ]
+  ```

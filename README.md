@@ -19,17 +19,18 @@
 - 2. stream lit
   - to provide stream lit desc create a markdown with the header `NBForge_Streamlit`
   - if there are multiple such markdown blocks we pick the latest one
-- 2. proper structure
+- 3. fast api support
+- 4. proper structure
   - add description for each function
-- 3. add logging
-- 4. proper packaging (toml)
-- 5. convert to package
+- 5. add logging
+- 6. proper packaging (toml)
+- 7. convert to package
   - understand difference between
     - a. publishing a package that one can import
     - b. publishing a pakcage that people install and use in cli
-- 6. cli
-- 7. webapp
-- 8. vs code extension
+- 8. cli
+- 9. webapp
+- 10. vs code extension
 
 - MAYBE : we will provide an option to create test cases for the modules
 - add anotations :
@@ -49,6 +50,6 @@
 
 - check the streamlit app . check whether it is correctly picking the csv file .
 
-- Sample image from streamlit app
+- Sample image from streamlit app generated using this package
 - ![alt text](./images/streamlit_1.png)
 - ![alt text](./images/streamlit_2.png)

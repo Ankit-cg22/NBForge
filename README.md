@@ -49,7 +49,15 @@
   - should we allow it to revamp the comments and readme?
 
 - check the streamlit app . check whether it is correctly picking the csv file .
+- test the demo MSE calculation program with all 3
+
+  - default modules
+  - stream lit
+  - fast api
 
 - Sample image from streamlit app generated using this package
 - ![alt text](./images/streamlit_1.png)
 - ![alt text](./images/streamlit_2.png)
+
+- Sample endpoint from fastAPI app generated using this package
+- ![alt text](./images/fastapi_1.png)

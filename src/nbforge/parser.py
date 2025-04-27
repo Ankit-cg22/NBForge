@@ -1,5 +1,5 @@
 import nbformat 
-from utils.constants import STREAMLIT_BLOCK_CONSTANT , FASTAPI_BLOCK_CONSTANT
+from nbforge.utils.constants import STREAMLIT_BLOCK_CONSTANT , FASTAPI_BLOCK_CONSTANT
  
 def extract_blocks(notebook_path):
     with open(notebook_path, 'r', encoding='utf-8') as f:

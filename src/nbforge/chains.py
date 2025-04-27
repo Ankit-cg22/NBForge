@@ -5,7 +5,7 @@ from langchain_core.exceptions import OutputParserException
 from groq_client import GroqClient
 from dotenv import load_dotenv
 import yaml
-from utils.constants import *
+from nbforge.utils.constants import *
 import platform
 
 load_dotenv()
@@ -13,7 +13,7 @@ load_dotenv()
 class Chains:
     def __init__(self):
         self.llm = GroqClient().get_model()
-        self.prompts = self.load_prompts("src\\utils\\prompts.yml")
+        self.prompts = self.load_prompts("src/nbforge/utils/prompts.yml")
     
     @staticmethod
     def load_prompts(file_path):

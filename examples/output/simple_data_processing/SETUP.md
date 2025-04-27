@@ -1,9 +1,9 @@
 ## Setup Instructions
 
-### Virtual Environment Setup (Windows)
+### Virtual Environment Setup (Darwin)
 ```bash
-python -m venv venv
-venv\Scripts\activate
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 

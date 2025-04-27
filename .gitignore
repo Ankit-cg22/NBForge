@@ -9,8 +9,6 @@
 venv/
 .env/
 *.venv
-nbforge/
-
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -30,4 +28,3 @@ dist/
 *.env
 .envrc
 *.ini
-*.toml

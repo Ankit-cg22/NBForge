@@ -61,3 +61,9 @@
 
 - Sample endpoint from fastAPI app generated using this package
 - ![alt text](./images/fastapi_1.png)
+
+## CLI tool
+- Run the following command to covnert the jupyter notebook file at `NOTEBOOK_PATH` into a python module created in directory `OUTPUT_DIRECTORY`.
+```bash
+$ nbforge convert <NOTEBOOK_PATH> <OUTPUT_DIRECTORY>
+```

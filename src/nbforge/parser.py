@@ -2,6 +2,19 @@ import nbformat
 from nbforge.utils.constants import STREAMLIT_BLOCK_CONSTANT , FASTAPI_BLOCK_CONSTANT
  
 def extract_blocks(notebook_path):
+    """
+    Extracts code, markdown, and special description blocks from a Jupyter notebook.
+
+    Args:
+        notebook_path (str): Path to the Jupyter notebook file.
+
+    Returns:
+        tuple: (code_blocks, markdown_blocks, streamlit_desc_block, fastAPI_desc_block)
+            - code_blocks (list): List of code cell sources.
+            - markdown_blocks (list): List of markdown cell sources (excluding special blocks).
+            - streamlit_desc_block (str or None): Streamlit description block if present, else None.
+            - fastAPI_desc_block (str or None): FastAPI description block if present, else None.
+    """
     with open(notebook_path, 'r', encoding='utf-8') as f:
         nb = nbformat.read(f, as_version=4)
 

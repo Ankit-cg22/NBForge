@@ -1,4 +1,5 @@
-# Load data
+# Load data - This function loads data from a CSV file.
+
 import pandas as pd
 
 def load_data(file_path):

@@ -1,3 +1,3 @@
-# Project Overview
+# Data Processing Project
 
-This project contains utility functions for data processing and linear regression model training.
+This project demonstrates how to do data processing to find mean squared error using linear regression.

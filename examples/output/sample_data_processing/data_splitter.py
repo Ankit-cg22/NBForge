@@ -1,5 +1,5 @@
-# Split data
-import pandas as pd
+# Split data - This function splits the data into training and testing sets.
+
 from sklearn.model_selection import train_test_split
 
 def split_data(df, target_column):

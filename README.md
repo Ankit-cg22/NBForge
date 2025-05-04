@@ -20,15 +20,17 @@
   - to provide stream lit desc create a markdown with the header `NBForge_Streamlit`
   - if there are multiple such markdown blocks we pick the latest one
 - 3. fast api support -- done
-- 4. proper structure - bit mroe on it 
+- 4. proper structure - bit more on it 
   - add description for each function
+- 5. update toml file -- DONE 
+  - optimze (remove unnecessary dependencies)
 - 5. add logging
 - 6. proper packaging (toml) -- done 
 - 7. convert to package [ IMP ]
-  - understand difference between
+  - understand difference between 
     - a. publishing a package that one can import
     - b. publishing a pakcage that people install and use in cli
-- 8. cli
+- 8. cli -- DONE 
 - 9. webapp
 - 10. vs code extension
 

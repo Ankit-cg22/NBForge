@@ -1,5 +1,4 @@
-# Model training function
-# Train a linear regression model
+# Train model
 from sklearn.linear_model import LinearRegression
 
 def train_model(X_train, y_train):

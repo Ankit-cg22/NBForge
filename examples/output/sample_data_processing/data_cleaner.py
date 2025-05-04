@@ -1,5 +1,4 @@
-# Data cleaning function
-# Clean data by removing missing values
+# Clean data
 import pandas as pd
 
 def clean_data(df):

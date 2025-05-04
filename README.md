@@ -16,15 +16,15 @@
 - Milestones :
 
 - 1. convert notebook to python project -- done
-- 2. stream lit
+- 2. stream lit -- done
   - to provide stream lit desc create a markdown with the header `NBForge_Streamlit`
   - if there are multiple such markdown blocks we pick the latest one
-- 3. fast api support
-- 4. proper structure
+- 3. fast api support -- done
+- 4. proper structure - bit mroe on it 
   - add description for each function
 - 5. add logging
-- 6. proper packaging (toml)
-- 7. convert to package
+- 6. proper packaging (toml) -- done 
+- 7. convert to package [ IMP ]
   - understand difference between
     - a. publishing a package that one can import
     - b. publishing a pakcage that people install and use in cli

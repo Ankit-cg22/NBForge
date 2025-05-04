@@ -1,11 +1,11 @@
-# Main function
-# Load data, clean data, split data, train model, make predictions, and evaluate model
 from data_loader import load_data
 from data_cleaner import clean_data
 from data_splitter import split_data
 from model_trainer import train_model
 from model_evaluator import evaluate_model
 
+# Data processing
+# - This notebook demonstrates how to do data processing to find mean squared error.
 if __name__ == "__main__":
     file_path = 'data.csv'
     df = load_data(file_path)

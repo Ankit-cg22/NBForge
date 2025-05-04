@@ -1,4 +1,7 @@
 import os 
+from nbforge.logger import setup_logger
+logger = setup_logger(__name__)
+
 def write_to_file(output_dir , file_name , file_content):
     """
     Writes content to a file in the specified output directory, creating the directory if it doesn't exist.

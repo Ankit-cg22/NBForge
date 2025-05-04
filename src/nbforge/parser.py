@@ -1,6 +1,9 @@
 import nbformat 
 from nbforge.utils.constants import STREAMLIT_BLOCK_CONSTANT , FASTAPI_BLOCK_CONSTANT
- 
+from nbforge.logger import setup_logger
+
+logger = setup_logger(__name__)
+
 def extract_blocks(notebook_path):
     """
     Extracts code, markdown, and special description blocks from a Jupyter notebook.

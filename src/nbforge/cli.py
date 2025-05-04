@@ -1,5 +1,8 @@
 import click
 from nbforge.converter import convert_notebook  
+from nbforge.logger import setup_logger
+
+logger = setup_logger(__name__)
 
 @click.group()
 def cli():

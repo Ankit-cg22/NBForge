@@ -7,8 +7,11 @@ from dotenv import load_dotenv
 import yaml
 from nbforge.utils.constants import *
 import platform
+from nbforge.logger import setup_logger
 
 load_dotenv()
+
+logger = setup_logger(__name__)
 
 class Chains:
     """
@@ -82,7 +85,7 @@ class Chains:
             prompt_name = NB_TO_MODULE_FASTAPI_PROMPT
         else: 
             prompt_name = NB_TO_MODULE_PROMPT
-        print(f"using prompt {prompt_name}")
+        logger.info(f"using prompt {prompt_name}")
         prompt_file_structure = PromptTemplate.from_template(self.get_prompt(prompt_name))
         chain_extract = prompt_file_structure | self.llm
         res = chain_extract.invoke(
@@ -98,5 +101,6 @@ class Chains:
             json_parser = JsonOutputParser()
             res = json_parser.parse(res.content)
         except OutputParserException:
+            logger.error("Context too big. Unable to parse data.")
             raise OutputParserException("Context too big. Unable to parse data.")
         return res

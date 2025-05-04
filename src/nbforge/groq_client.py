@@ -1,5 +1,8 @@
 import os
 from langchain_groq import ChatGroq
+from nbforge.logger import setup_logger
+logger = setup_logger(__name__)
+
 class GroqClient:
     """
     Manages the instantiation and configuration of a ChatGroq language model client.

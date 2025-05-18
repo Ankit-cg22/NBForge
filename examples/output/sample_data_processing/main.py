@@ -6,6 +6,8 @@ from model_evaluator import evaluate_model
 
 # Data processing
 # - This notebook demonstrates how to do data processing to find mean squared error.
+# - The below cell displays how we use linear regression.
+
 if __name__ == "__main__":
     file_path = 'data.csv'
     df = load_data(file_path)

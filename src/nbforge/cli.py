@@ -1,8 +1,9 @@
 import click
-from nbforge.converter import convert_notebook  
+from nbforge.converter import convert_notebook
 from nbforge.logger import setup_logger
 
 logger = setup_logger(__name__)
+
 
 @click.group()
 def cli():
@@ -17,9 +18,10 @@ def cli():
     """
     pass
 
+
 @cli.command()
-@click.argument('notebook_path')
-@click.argument('output_directory')
+@click.argument("notebook_path")
+@click.argument("output_directory")
 def convert(notebook_path, output_directory):
     """
     Converts a Jupyter notebook to a structured Python project.
@@ -32,6 +34,7 @@ def convert(notebook_path, output_directory):
         None
     """
     convert_notebook(notebook_path, output_directory)
+
 
 def main():
     """

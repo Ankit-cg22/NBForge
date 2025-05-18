@@ -1,8 +1,9 @@
-import nbformat 
-from nbforge.utils.constants import STREAMLIT_BLOCK_CONSTANT , FASTAPI_BLOCK_CONSTANT
+import nbformat
+from nbforge.utils.constants import STREAMLIT_BLOCK_CONSTANT, FASTAPI_BLOCK_CONSTANT
 from nbforge.logger import setup_logger
 
 logger = setup_logger(__name__)
+
 
 def extract_blocks(notebook_path):
     """
@@ -18,32 +19,33 @@ def extract_blocks(notebook_path):
             - streamlit_desc_block (str or None): Streamlit description block if present, else None.
             - fastAPI_desc_block (str or None): FastAPI description block if present, else None.
     """
-    with open(notebook_path, 'r', encoding='utf-8') as f:
+    with open(notebook_path, "r", encoding="utf-8") as f:
         nb = nbformat.read(f, as_version=4)
 
-    code_blocks = [cell['source'] for cell in nb.cells if cell.cell_type == 'code']
+    code_blocks = [cell["source"] for cell in nb.cells if cell.cell_type == "code"]
     markdown_blocks = []
-    streamlit_desc_block = None  
-    fastAPI_desc_block = None 
+    streamlit_desc_block = None
+    fastAPI_desc_block = None
 
     for cell in nb.cells:
-        if cell.cell_type == 'markdown':
-            if is_streamlit_desc_block(cell['source']):
-                streamlit_desc_block = cell['source']  
-            elif is_fastAPI_desc_block(cell['source']):
-                fastAPI_desc_block = cell['source']
+        if cell.cell_type == "markdown":
+            if is_streamlit_desc_block(cell["source"]):
+                streamlit_desc_block = cell["source"]
+            elif is_fastAPI_desc_block(cell["source"]):
+                fastAPI_desc_block = cell["source"]
             else:
-                markdown_blocks.append(cell['source'])  
+                markdown_blocks.append(cell["source"])
 
-    return code_blocks, markdown_blocks, streamlit_desc_block , fastAPI_desc_block
+    return code_blocks, markdown_blocks, streamlit_desc_block, fastAPI_desc_block
+
 
 def is_streamlit_desc_block(cell):
     """
     Checks if the first line of the given cell contains 'NBForge_Streamlit' (case insensitive).
-    
+
     Args:
         cell (str): The content of a notebook cell.
-    
+
     Returns:
         bool: True if the first line contains 'NBForge_Streamlit' (case insensitive), False otherwise.
     """
@@ -51,13 +53,14 @@ def is_streamlit_desc_block(cell):
     streamlit_constant = STREAMLIT_BLOCK_CONSTANT.lower()
     return streamlit_constant in lines[0].lower() if lines else False
 
+
 def is_fastAPI_desc_block(cell):
     """
     Checks if the first line of the given cell contains 'NBForge_FastAPI' (case insensitive).
-    
+
     Args:
         cell (str): The content of a notebook cell.
-    
+
     Returns:
         bool: True if the first line contains 'NBForge_FastAPI' (case insensitive), False otherwise.
     """

@@ -1,14 +1,16 @@
 import os
 from langchain_groq import ChatGroq
 from nbforge.logger import setup_logger
+
 logger = setup_logger(__name__)
+
 
 class GroqClient:
     """
     Manages the instantiation and configuration of a ChatGroq language model client.
     """
 
-    def __init__(self , api_key: str = None, model: str = "llama-3.3-70b-versatile"):
+    def __init__(self, api_key: str = None, model: str = "llama-3.3-70b-versatile"):
         """
         Initializes the GroqClient with the specified API key and model.
 
@@ -25,13 +27,11 @@ class GroqClient:
         self.api_key = api_key or os.getenv("GROQ_API_KEY")
         self.model = model
         if not self.api_key:
-            raise ValueError("GROQ_API_KEY is not set. Please set it in the environment variables.")
+            raise ValueError(
+                "GROQ_API_KEY is not set. Please set it in the environment variables."
+            )
 
-        self.llm = ChatGroq(
-            model = self.model,
-            temperature = 0 ,
-            groq_api_key = self.api_key
-        )
+        self.llm = ChatGroq(model=self.model, temperature=0, groq_api_key=self.api_key)
 
     def get_model(self):
         """

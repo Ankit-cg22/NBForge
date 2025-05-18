@@ -1,5 +1,6 @@
 import logging
 
+
 def setup_logger(name: str = "nbforge"):
     """
     Sets up and returns a logger with the specified name.
@@ -15,8 +16,8 @@ def setup_logger(name: str = "nbforge"):
         logger.setLevel(logging.INFO)
         handler = logging.StreamHandler()
         formatter = logging.Formatter(
-            '[%(asctime)s] %(levelname)s : %(module)s : %(message)s'
+            "[%(asctime)s] %(levelname)s : %(module)s : %(message)s"
         )
         handler.setFormatter(formatter)
         logger.addHandler(handler)
-    return logger 
+    return logger

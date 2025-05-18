@@ -19,20 +19,23 @@
 - 2. stream lit -- done
   - to provide stream lit desc create a markdown with the header `NBForge_Streamlit`
   - if there are multiple such markdown blocks we pick the latest one
-- 3. fast api support -- done
-- 4. proper structure - bit more on it 
-  - add description for each function
+- 3. fast api support -- DONE
+- 4. proper structure - DONE 
+  - add description for each function -- DONE 
 - 5. update toml file -- DONE 
   - optimze (remove unnecessary dependencies)
-- 5. add logging
-- 6. proper packaging (toml) -- done 
-- 7. convert to package [ IMP ]
-  - understand difference between 
+- 5. setup logging -- DONE 
+  - add proper logging to each file -- ADDED TO converter.py , rest not adding 
+- 6. proper packaging (toml) -- DONE 
+- 7. format the files -- DONE 
+- 8. convert to package [ IMP ] -- DONE
+  - understand difference between  
     - a. publishing a package that one can import
     - b. publishing a pakcage that people install and use in cli
-- 8. cli -- DONE 
-- 9. webapp
-- 10. vs code extension
+- 9. cli -- DONE 
+- 10. publish to pypi
+- 11. webapp
+- 12. vs code extension
 
 - MAYBE : we will provide an option to create test cases for the modules
 - add anotations :

@@ -24,7 +24,7 @@ class GroqClient:
         Raises:
             ValueError: If no API key is provided or found in the environment.
         """
-        self.api_key = api_key or os.getenv("GROQ_API_KEY")
+        self.api_key = api_key or os.getenv("NBFORGE_GROQ_API_KEY")
         self.model = model
         if not self.api_key:
             raise ValueError(

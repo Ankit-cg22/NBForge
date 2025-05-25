@@ -6,3 +6,5 @@
   - 1. Create python project with well structured modules
   - 2. Create FAST-API wrapper
   - 3. Create Streamlit frontend
+
+- Requires a groq api key in .env file with key `NBFORGE_GROQ_API_KEY`

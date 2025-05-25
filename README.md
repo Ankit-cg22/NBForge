@@ -1,7 +1,7 @@
 # NBForge
 
 - Python package to convert notebooks into well structured python projects .
-- Goal is to be able to process notebooks to
+- Provides functionalities to process jupyter notebooks to
 
   - 1. Create python project with well structured modules
   - 2. Create FAST-API wrapper

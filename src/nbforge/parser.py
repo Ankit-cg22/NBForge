@@ -1,5 +1,5 @@
 import nbformat
-from nbforge.utils.constants import STREAMLIT_BLOCK_CONSTANT, FASTAPI_BLOCK_CONSTANT
+from utils.constants import STREAMLIT_BLOCK_CONSTANT, FASTAPI_BLOCK_CONSTANT
 from nbforge.logger import setup_logger
 
 logger = setup_logger(__name__)

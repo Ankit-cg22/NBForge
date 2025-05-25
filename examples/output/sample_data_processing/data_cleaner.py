@@ -1,5 +1,5 @@
-# Data Cleaning Function - This function cleans the data by dropping NA values.
-
+# Data cleaning function
+# Clean data
 import pandas as pd
 
 def clean_data(df):

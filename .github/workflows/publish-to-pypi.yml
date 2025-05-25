@@ -18,6 +18,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Remove old dist folder
+        run: rm -rf dist
+
       - name: Install build tools
         run: python -m pip install --upgrade pip build twine
 

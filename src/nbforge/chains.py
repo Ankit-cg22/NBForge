@@ -5,7 +5,7 @@ from langchain_core.exceptions import OutputParserException
 from nbforge.groq_client import GroqClient
 from dotenv import load_dotenv
 import yaml
-from utils.constants import *
+from nbforge.utils.constants import *
 import platform
 from nbforge.logger import setup_logger
 

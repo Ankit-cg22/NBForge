@@ -8,6 +8,7 @@ import yaml
 from nbforge.utils.constants import *
 import platform
 from nbforge.logger import setup_logger
+import importlib.resources
 
 load_dotenv()
 
@@ -30,20 +31,20 @@ class Chains:
             None
         """
         self.llm = GroqClient().get_model()
-        self.prompts = self.load_prompts("src/nbforge/utils/prompts.yml")
+        self.prompts = self.load_prompts()
 
     @staticmethod
-    def load_prompts(file_path):
+    def load_prompts():
         """
-        Loads prompts from a YAML file.
+        Loads prompt configurations from the 'prompts.yml' file located in the 'nbforge.utils' package.
 
         Args:
-            file_path (str): Path to the YAML file containing prompts.
+            None
 
         Returns:
-            dict: Dictionary of prompts loaded from the file.
+            dict: A dictionary containing the loaded prompts from the YAML file.
         """
-        with open(file_path, "r") as file:
+        with importlib.resources.files("nbforge.utils").joinpath("prompts.yml").open("r") as file:
             prompts = yaml.safe_load(file)
         return prompts
 

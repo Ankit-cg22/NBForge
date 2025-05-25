@@ -28,7 +28,7 @@ class GroqClient:
         self.model = model
         if not self.api_key:
             raise ValueError(
-                "GROQ_API_KEY is not set. Please set it in the environment variables."
+                "NBFORGE_GROQ_API_KEY is not set. Please set it in the environment variables."
             )
 
         self.llm = ChatGroq(model=self.model, temperature=0, groq_api_key=self.api_key)
